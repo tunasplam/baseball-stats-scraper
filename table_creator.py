@@ -1,5 +1,4 @@
 """
-    Makes the tables. Programming it bc the command can be brutal.
 
     Yes, over a thousand lines of CREATE TABLE commands...
 
