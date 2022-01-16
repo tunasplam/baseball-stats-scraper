@@ -12,9 +12,9 @@ Requires python, SQLite3, and Beautiful Soup 4. I have only run this on Linux so
 # Executing
 
 For now, you have to run 
-'''
+```
 python table_creator.py
-'''
+```
 first in order to set up the tables. But soon I will add a cli for the downloader that allows you to just run everything from Main.py.
 
 After table_creator.py is run, you need to set the season variable in Main.py (again, something that I will change very soon once I had a cli). Oh, and you also need a few hours. This will take a looonnngg time.
