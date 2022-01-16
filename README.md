@@ -24,5 +24,8 @@ Once the program has run its course, you will find baseball.db in the same direc
 # Something happened and the program got interrupted before it could finish!
 Thats okay, run it again and it will pick up where it left off.
 
+# What data does it grab?
+Check table_creator.py for the schema. Maybe one day I will put together a big list of the tables and the stats and the explanation of what each stat means but... that would be... a lot of work. One day.
+
 # Author
 Jordan Porter
