@@ -11,15 +11,24 @@ Requires python, SQLite3, and Beautiful Soup 4. I have only run this on Linux so
 
 # Executing
 
-For now, you have to run 
-```
-python table_creator.py
-```
-first in order to set up the tables. But soon I will add a cli for the downloader that allows you to just run everything from Main.py.
+Here is the output of:
 
-After table_creator.py is run, you need to set the season variable in Main.py (again, something that I will change very soon once I had a cli). Oh, and you also need a few hours. This will take a looonnngg time.
+```
+python Main.py -h
+```
 
-Once the program has run its course, you will find baseball.db in the same directory (again, once I add a cli, I will add an option to do a custom db location).
+usage: Main.py [-h] [-S S] [-o [O]] [-N]
+
+Acquire some baseball data.
+
+options:
+  -h, --help  show this help message and exit
+  -S S        Seaon to scrape. Use YYYY.
+  -o [O]      Name that you want the db to have. Defaults to baseball.db
+  -N          If this is present then a new DB will be made. Any db with the same
+              name as -o arg will have a backup made of it.
+
+Let it run for a few hours
 
 ## Something happened and the program got interrupted before it could finish!
 Thats okay, run it again and it will pick up where it left off.
