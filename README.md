@@ -21,10 +21,10 @@ After table_creator.py is run, you need to set the season variable in Main.py (a
 
 Once the program has run its course, you will find baseball.db in the same directory (again, once I add a cli, I will add an option to do a custom db location).
 
-# Something happened and the program got interrupted before it could finish!
+## Something happened and the program got interrupted before it could finish!
 Thats okay, run it again and it will pick up where it left off.
 
-# What data does it grab?
+## What data does it grab?
 Check table_creator.py for the schema. Maybe one day I will put together a big list of the tables and the stats and the explanation of what each stat means but... that would be... a lot of work. One day.
 
 # Author
