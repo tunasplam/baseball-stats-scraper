@@ -1,9 +1,4 @@
 """
-    So now I know a lot more about things. Such as sqlite3. Better webscraping.
-    Time to revisit baseball.
-
-    This TODO list should be kept in order that things need to be done.
-
     X TODO Multithreading
         Each thread handles another team. make a queue of teams to be
         scraped.
