@@ -1,11 +1,12 @@
 """
+    Makes the tables. Programming it bc the command can be brutal.
 
     Yes, over a thousand lines of CREATE TABLE commands...
 
 """
-from Utils.Constants import Constants
 from Utils.Basic_Utils import Basic_Utils as BU
 from Utils.Database_Driver import Database_Driver
+import argparse
 
 # teamInfo from Constants. Need to populate this.
 create_teams = """
@@ -1299,44 +1300,58 @@ CREATE TABLE fielding_pitcher (
 """
 
 
+def get_args():
+    parser = argparse.ArgumentParser(
+        description="Create the template for the db.")
+    parser.add_argument(
+        '-o', type=str, nargs='?', default='baseball.db',
+        help="Name that you want the db to have. Defaults to baseball.db")
+
+    return parser.parse_args()
+
+
 def main():
 
     commands = [
-        "create_teams",
-        "create_schdeules",
-        "create_boxscores_batting",
-        "create_boxscores_pitching",
-        "create_play_by_play",
-        "create_player_info",
-        "create_player_batting",
-        "create_player_pitching",
-        "create_player_fielding",
-        "create_player_batter_values",
-        "create_player_pitcher_values",
-        "create_advanced_batting",
-        "create_baserunning",
-        "create_pinch_hit_home_run_situation_hitting",
-        "create_pitches_batting",
-        "create_pitching_baserunning_and_situations",
-        "create_pitches_pitcher",
-        "create_fielding_totals",
-        "create_fielding_catcher",
-        "create_fielding_first_base",
-        "create_fielding_second_base",
-        "create_fielding_third_base",
-        "create_fielding_ss",
-        "create_fielding_lf",
-        "create_fielding_cf",
-        "create_fielding_of",
-        "create_fielding_rf",
-        "create_fielding_pitcher",
+        create_teams,
+        create_schdeules,
+        create_boxscores_batting,
+        create_boxscores_pitching,
+        create_play_by_play,
+        create_player_info,
+        create_player_batting,
+        create_player_pitching,
+        create_player_fielding,
+        create_player_batter_values,
+        create_player_pitcher_values,
+        create_advanced_batting,
+        create_baserunning,
+        create_pinch_hit_home_run_situation_hitting,
+        create_pitches_batting,
+        create_pitching_baserunning_and_situations,
+        create_pitches_pitcher,
+        create_fielding_totals,
+        create_fielding_catcher,
+        create_fielding_first_base,
+        create_fielding_second_base,
+        create_fielding_third_base,
+        create_fielding_ss,
+        create_fielding_lf,
+        create_fielding_cf,
+        create_fielding_of,
+        create_fielding_rf,
+        create_fielding_pitcher,
     ]
 
-    db = Database_Driver("baseball.db")
+    args = get_args()
+
+    db_path = args.o
+
+    db = Database_Driver(db_path)
 
     count = 1
     for command in commands:
-        db.execute_insert(eval(command))
+        db.execute_insert(command)
         BU.printProgressBar(count, len(commands),
                             prefix="Creating Tables...",
                             length=30)

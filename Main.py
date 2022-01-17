@@ -1,4 +1,7 @@
 """
+
+    This TODO list should be kept in order that things need to be done.
+
     X TODO Multithreading
         Each thread handles another team. make a queue of teams to be
         scraped.
@@ -28,16 +31,54 @@ from Scrapers.Basic_Stats import Basic_Stats
 from Scrapers.Batting_Stats import Batting_Stats
 from Scrapers.Pitching_Stats import Pitching_Stats
 from Scrapers.Boxscores import Boxscores
+import argparse
+import sys
+from os import system
+from os.path import exists
+
+
+def get_args():
+    parser = argparse.ArgumentParser(
+        description="Acquire some baseball data.")
+    parser.add_argument(
+        '-S', type=int, nargs=1,
+        help="Seaon to scrape. Use YYYY.")
+    parser.add_argument(
+        '-o', type=str, nargs='?', default='baseball.db',
+        help="Name that you want the db to have. Defaults to baseball.db")
+    parser.add_argument(
+        '-N', action='store_true',
+        help="If this is present then a new DB will be made. Any db with the same name as -o arg will have a backup made of it.")
+
+    return parser.parse_args()
+
+
+def setup_vars(args):
+    season = args.S[0]
+    if season < 1800:
+        print("WHOOPS Make sure you have the season year in YYYY format.")
+        sys.exit()
+
+    db_path = args.o
+
+    if args.N:
+        print("Making a new db at {}".format(db_path))
+        if exists(db_path):
+            print("Making a backup of {} at {}_backup".format(db_path, db_path))
+            system("mv {} {}_backup".format(db_path, db_path))
+
+        system("python table_creator.py -o {}".format(db_path))
+
+    return (season, db_path)
 
 
 def main():
 
-    # TODO some sort of cli to get the season?
-    season = 2021
-    db_path = "baseball.db"
-    db = Database_Driver(db_path)
+    args = get_args()
 
-    # TODO check if tables are made. if not, run table creator.
+    season, db_path = setup_vars(args)
+
+    db = Database_Driver(db_path)
 
     basic_stats = Basic_Stats(db, season)
     batting_stats = Batting_Stats(db, season)
