@@ -42,7 +42,7 @@ def get_args():
         description="Acquire some baseball data.")
     parser.add_argument(
         '-S', type=int, nargs=1,
-        help="Seaon to scrape. Use YYYY.")
+        help="Season to scrape. Use YYYY.")
     parser.add_argument(
         '-o', type=str, nargs='?', default='baseball.db',
         help="Name that you want the db to have. Defaults to baseball.db")
