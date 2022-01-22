@@ -11,13 +11,13 @@
         I think it is stopped by us having only one needle to write on the
         HDD with.
 
-    O TODO loop table_creator.py in with this program
+    O TODO This can probably be optimized by combining a bunch of insert statements
+    into larger insert statements. See:
+    https://stackoverflow.com/questions/1793169/which-is-faster-multiple-single-inserts-or-one-multiple-row-insert
 
     O TODO make sure that the schedules table was populated properly
 
     O TODO test the covid season
-
-    O TODO Maybe split up Boxscores class
 
 """
 
