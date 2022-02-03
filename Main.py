@@ -11,6 +11,9 @@
         I think it is stopped by us having only one needle to write on the
         HDD with.
 
+    O Cleveland renamed their team so the Constants class is no longer constant!!!
+      Need to start pulling this from baseball reference!
+
     O TODO This can probably be optimized by combining a bunch of insert statements
     into larger insert statements. See:
     https://stackoverflow.com/questions/1793169/which-is-faster-multiple-single-inserts-or-one-multiple-row-insert
