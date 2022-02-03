@@ -159,7 +159,7 @@ CREATE TABLE play_by_play(
     season INT,
     boxscore_link TEXT,
     inning TEXT,
-    count TEXT,
+    score TEXT,
     out INT,
     RoB TEXT,
     pitches INT,

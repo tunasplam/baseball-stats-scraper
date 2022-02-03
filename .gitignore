@@ -1,0 +1,4 @@
+# ignore our db's and our jupyter notebooks
+*.db
+*.db_backup
+*.ipynb
