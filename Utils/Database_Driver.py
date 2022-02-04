@@ -85,11 +85,14 @@ class Database_Driver:
             print(command)
             sys.exit(1)
 
-    def select_to_df(self, command):
+    def select_to_df(self, command, index=None):
         """Executes sqlite command and returns result
         as a df.
         Args:
             command (string): sqlite3 command to be executed.
+            index (string): set the given column in the query to be
+            the index of the resultant df.
+
 
         Returns:
             df: Pandas df with info we pulled.
@@ -98,7 +101,7 @@ class Database_Driver:
             con = sqlite.connect(self.db_path)
             # with scope closes con when we return
             with con:
-                df = pd.read_sql_query(command, con)
+                df = pd.read_sql_query(command, con, index_col=index)
                 return df
 
         except (sqlite.Error, sqlite.Warning) as e:
