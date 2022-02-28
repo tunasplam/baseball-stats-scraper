@@ -1,4 +1,4 @@
-# ignore our db's and our jupyter notebooks
+# ignore our db's and our jupyter notebook drafts
 *.db
 *.db_backup
-*.ipynb
+/model_drafts
